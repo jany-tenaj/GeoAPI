@@ -239,14 +239,14 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        ///
+        /// Returns <other>true</other> if <other>other</other> has the same values for the x and y ordinates.
+        /// Since Coordinates are 2.5D, this routine ignores the z value when making the comparison.
         /// </summary>
-        /// <param name="other"></param>
-        /// <returns></returns>
+        /// <param name="other"><other>Coordinate</other> with which to do the comparison.</param>
+        /// <returns><other>true</other> if <other>other</other> is a <other>Coordinate</other> with the same values for the x and y ordinates.</returns>
         public Boolean Equals(Coordinate other)
         {
-            if (other == null) return false;
-            return (double.IsNaN(Z) || double.IsNaN(other.Z)) ? Equals2D(other) : Equals3D(other);
+            return Equals2D(other);
         }
 
         ///// <summary>
